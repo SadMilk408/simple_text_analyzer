@@ -5,11 +5,22 @@
     <scanScope>JavaOnly</scanScope>
     <copyLibs>true</copyLibs>
     <option name="thirdPartyClasspath" />
-    <option name="activeLocationIds" />
+    <option name="activeLocationIds">
+      <option value="f95ce4ce-9be9-499b-80ed-a26fd86748ef" />
+    </option>
     <option name="locations">
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">bundled-sun-checks</ConfigurationLocation>
         <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">bundled-google-checks</ConfigurationLocation>
+        <ConfigurationLocation id="f95ce4ce-9be9-499b-80ed-a26fd86748ef" type="LOCAL_FILE" scope="All" description="132">
+          C:\Users\homyk\IdeaProjects\startjava_checks.xml
+          <option name="properties">
+            <map>
+              <entry key="org.checkstyle.google.suppressionfilter.config" value="checkstyle-suppressions.xml" />
+              <entry key="org.checkstyle.google.suppressionxpathfilter.config" value="checkstyle-xpath-suppressions.xml" />
+            </map>
+          </option>
+        </ConfigurationLocation>
       </list>
     </option>
   </component>
