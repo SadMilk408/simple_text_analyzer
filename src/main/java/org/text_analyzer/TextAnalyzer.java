@@ -12,6 +12,16 @@ public class TextAnalyzer {
         return Files.readString(path);
     }
 
+    static AnalysisResult analyze(String text) {
+        List<String> words = TextAnalyzer.splitIntoWords(text);
+
+        Map<String, Integer> wordsCount = TextAnalyzer.countWords(words);
+
+        List<Map.Entry<String, Integer>> topWords = TextAnalyzer.getTopWords(wordsCount, 2);
+
+        return new AnalysisResult(words.size(), wordsCount.size(), wordsCount, topWords);
+    }
+
     static List<String> splitIntoWords(String text) {
         return List.of(
                 text.toLowerCase()
@@ -40,5 +50,15 @@ public class TextAnalyzer {
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .limit(limit)
                 .toList();
+    }
+
+    static void printResult(AnalysisResult result) {
+        System.out.println("Total words: " + result.totalWords());
+        System.out.println("Unique words: " + result.uniqueWords());
+
+        System.out.println("Top words:");
+        for (Map.Entry<String, Integer> entry : result.topWords()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
     }
 }
