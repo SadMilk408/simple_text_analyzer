@@ -3,6 +3,7 @@ package org.text_analyzer;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,10 +14,13 @@ public class Main {
             text = TextAnalyzer.readText(filePath);
         } catch (IOException e) {
             System.out.println("File doesn't exist");
+            return;
         }
 
         List<String> words = TextAnalyzer.splitIntoWords(text);
 
-        System.out.print(TextAnalyzer.countWords(words));
+        Map<String, Integer> wordsCount = TextAnalyzer.countWords(words);
+
+        System.out.print(TextAnalyzer.getTopWords(wordsCount, 2));
     }
 }

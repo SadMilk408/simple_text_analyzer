@@ -29,4 +29,16 @@ public class TextAnalyzer {
 
         return wordCounts;
     }
+
+    static List<Map.Entry<String, Integer>> getTopWords(
+            Map<String, Integer> wordCounts,
+            int limit
+    ) {
+        return wordCounts
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .limit(limit)
+                .toList();
+    }
 }
